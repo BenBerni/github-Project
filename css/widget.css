@@ -4,16 +4,16 @@
     --grey: #888888;
     --black1: #222;
     --black2: #999;
-        --green: #47A025; 
---red:#FF0000;
+    --green: #47A025; 
+    --red: #FF0000;
     --light-blue: #ffffff;
     --shadow: rgba(0, 0, 0, 0.15);
     --card-hover: rgba(40, 123, 255, 0.1);
- --darkgray:#4B4B4B;
- --darkblue:#090C9B;
+    --darkgray: #4B4B4B;
+    --darkblue: #090C9B;
     --background-dark: #121212;
     --sidebar-background: #1E1E1E;
-    --sidebar-active:#878787;
+    --sidebar-active: #878787;
     --text-primary-dark: #E0E0E0;
     --text-secondary-dark: #B0B0B0;
     --accent-dark: #BB86FC;
@@ -30,33 +30,35 @@
     --temperature-data-background-dark: #2C2C2C;
     --graph-axis-dark: #757575;
     --status-bar-dark: #FF5252;
-
 }
-
 .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Add space between widgets */
-    margin-bottom: 20px; /* Space between rows */
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .widgets-row {
     display: flex;
-    justify-content: space-between; /* Add space between widgets */
+    flex-wrap: wrap;
+    justify-content: space-between;
     width: 100%;
-    margin-bottom: 20px; /* Space between rows */
+    margin-bottom: 20px;
 }
 
 .widget {
-    flex-basis: calc(50% - 10px); /* Each widget takes up half of the row width minus the gap */
-    height: 120px; /* Adjust height as needed */
+    flex: 1 1 calc(20% - 10px);
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 10px; /* Added margin for spacing */
-    pointer-events: none; /* Disable pointer events */
+    margin-bottom: 10px;
+    pointer-events: none;
+    box-sizing: border-box;
 }
+
+
 
 .widget .percent {
     position: relative;
@@ -71,14 +73,14 @@
 }
 
 .widget .percent svg circle {
-    width: 100px;  /* Adjust width */
-    height: 100px;  /* Adjust height */
+    width: 100px;
+    height: 100px;
     fill: none;
-    stroke-width: 8;  /* Adjust stroke width */
+    stroke-width: 8;
     stroke: var(--text-secondary-dark);
     transform: translate(5px, 5px);
-    stroke-dasharray: 314;  /* Adjust dash array for smaller circle */
-    stroke-dashoffset: 314;  /* Adjust dash offset for smaller circle */
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
     stroke-linecap: round;
     transition: all 1.5s ease-in-out;
 }
@@ -116,12 +118,12 @@
 }
 
 .text-widget {
-    padding: 5px 0 0;  /* Adjust padding */
+    padding: 5px 0 0;
     color: var(--white);
     font-weight: 600;
     letter-spacing: 1px;
     text-align: center;
-    font-size: 15px;  /* Adjust font size */
+    font-size: 15px;
 }
 
 .lds-grid {
@@ -129,7 +131,6 @@
     position: relative;
     width: 80px;
     height: 80px;
-    
 }
 
 .lds-grid div {
@@ -137,7 +138,6 @@
     width: 16px;
     height: 16px;
     background: var(--green);
-
     animation: lds-grid 1.2s linear infinite;
 }
 
@@ -203,4 +203,16 @@
         opacity: 0.5;
     }
 }
+@media (max-width: 768px) {
+    .widget {
+        flex: 1 1 calc(100% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .widget {
+        flex: 1 1 calc(100% - 10px);
+    }
+}
+
 
